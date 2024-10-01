@@ -4,6 +4,8 @@ from streamlit_navigation_bar import st_navbar
 from config import constants as cons
 from assets.css.designing import css
 from databricks_jobs import jobs
+from database_connection import database
+from dotenv import load_dotenv
 
 # global design
 design=css()
@@ -44,7 +46,8 @@ def main():
 
 
     if page == "Jobs":
-        jobs.list_jobs()
+        new_dbobj=database.database()
+        jobs.list_jobs(new_dbobj)
 
 if __name__ == "__main__":
     main()
