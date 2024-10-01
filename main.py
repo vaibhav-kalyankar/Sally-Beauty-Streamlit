@@ -4,6 +4,7 @@ from streamlit_navigation_bar import st_navbar
 from config import constants as cons
 from assets.css.designing import css
 from databricks_jobs import jobs
+from input_data import upload,features,run_model
 
 # global design
 design=css()
@@ -34,13 +35,13 @@ def main():
         sub_tabs = st.tabs(["Input Data", "Define Features", "Run Model"])
 
         with sub_tabs[0]:
-            pass
+            upload.input_upload()
 
         with sub_tabs[1]:
-            pass
+            features.input_features()
 
         with sub_tabs[2]:
-            pass
+            run_model.run_model()
 
 
     if page == "Jobs":

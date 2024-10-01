@@ -243,13 +243,6 @@ def column_info():
                     - **Week Start Column**:
                     We require a date column in YYYY-MM-DD format.
                     The column name should always be **WeekStart**
-
-                    - **Media Spend variables**:
-                    At least one is required in the data file. 
-                    Column name for these variables should be in the format: 
-                    ***<Brand name><delimiter><Channel name>***
-                        - For example, lets say brand name is ***App*** and channel name is ***AppleAds***, using -(hyphen) as delimiter, the name should be **App-AppleAds**
-                        - Delimiter can be any of: **.**(dot), **-**(hyphen), **_**(underscore)
         ''')
 
 # Function to calculate total spend by state
