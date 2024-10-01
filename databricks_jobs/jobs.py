@@ -2,8 +2,10 @@ from config import constants as cs
 from datetime import datetime, timedelta, timezone
 from utils import get_job_runs, store_data_in_session, get_data_from_session, get_active_job_runs, cancel_run
 import streamlit as st
+from dotenv import load_dotenv
 import pandas as pd
 import humanize
+from database_connection import database
 import ast
 
 
@@ -24,7 +26,9 @@ def cancel_run_callback(run_id):
     return
 
 
-def list_jobs():
+
+
+def list_jobs(new_dbobj):
     # creating a single-element container
     hide_table_row_index = """
                 <style>
@@ -196,8 +200,8 @@ def list_jobs():
     #         )
 
         
-        df= pd.read_csv(r"C:\Users\Krushna_Kadam\Downloads\databricks_job_202410011321.csv")
-
+        df= new_dbobj.read_sql_database('select * from streamlit.databricks_job')
+     
         # pagination.table(data=pages[current_page - 1])
         html = df.to_html(escape=False, index=False)
         pagination.markdown(html, unsafe_allow_html=True)
