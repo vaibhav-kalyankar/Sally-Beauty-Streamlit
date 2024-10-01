@@ -3,6 +3,7 @@ import pandas as pd
 from streamlit_navigation_bar import st_navbar
 from config import constants as cons
 from assets.css.designing import css
+from databricks_jobs import jobs
 
 # global design
 design=css()
@@ -43,8 +44,7 @@ def main():
 
 
     if page == "Jobs":
-        pass
-
+        jobs.list_jobs()
 
 if __name__ == "__main__":
     main()
