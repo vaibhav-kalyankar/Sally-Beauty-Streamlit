@@ -48,10 +48,12 @@ def input_features():
                 sub_col1, sub_col2 = st.columns(2)
 
                 with sub_col1:
-                    lower_limit_date = st.date_input('Date From', value=min(df['WeekStart']))
+                    lower_limit_date = st.date_input('Date From', value=min(df['WeekStart']),
+                                                     min_value=min(df['WeekStart']),max_value=max(df['WeekStart']))
 
                 with sub_col2:
-                    upper_limit_date = st.date_input('Date To', value=max(df['WeekStart']))
+                    upper_limit_date = st.date_input('Date To', value=max(df['WeekStart']),
+                                                     min_value=min(df['WeekStart']),max_value=max(df['WeekStart']))
 
         save = st.button('Save Feature Definitions', type='primary')
         if save:
